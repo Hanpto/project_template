@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  My Application
+//  MyApplication
 //
-//  Created by krabyu on 2026/4/29.
+//  Created by krabyu on 2026/4/30.
 //
 
 import UIKit

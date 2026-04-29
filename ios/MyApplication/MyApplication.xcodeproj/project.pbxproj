@@ -7,32 +7,32 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		A99A4BD02FA228AC009A4E87 /* My Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A903B4482FA28845008CE65F /* MyApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A99A4BE22FA228AD009A4E87 /* Exceptions for "My Application" folder in "My Application" target */ = {
+		A903B45A2FA28846008CE65F /* Exceptions for "MyApplication" folder in "MyApplication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = A99A4BCF2FA228AC009A4E87 /* My Application */;
+			target = A903B4472FA28845008CE65F /* MyApplication */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		A99A4BD22FA228AC009A4E87 /* My Application */ = {
+		A903B44A2FA28845008CE65F /* MyApplication */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A99A4BE22FA228AD009A4E87 /* Exceptions for "My Application" folder in "My Application" target */,
+				A903B45A2FA28846008CE65F /* Exceptions for "MyApplication" folder in "MyApplication" target */,
 			);
-			path = "My Application";
+			path = MyApplication;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A99A4BCD2FA228AC009A4E87 /* Frameworks */ = {
+		A903B4452FA28845008CE65F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A99A4BC72FA228AC009A4E87 = {
+		A903B43F2FA28845008CE65F = {
 			isa = PBXGroup;
 			children = (
-				A99A4BD22FA228AC009A4E87 /* My Application */,
-				A99A4BD12FA228AC009A4E87 /* Products */,
+				A903B44A2FA28845008CE65F /* MyApplication */,
+				A903B4492FA28845008CE65F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A99A4BD12FA228AC009A4E87 /* Products */ = {
+		A903B4492FA28845008CE65F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A99A4BD02FA228AC009A4E87 /* My Application.app */,
+				A903B4482FA28845008CE65F /* MyApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +61,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A99A4BCF2FA228AC009A4E87 /* My Application */ = {
+		A903B4472FA28845008CE65F /* MyApplication */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A99A4BE32FA228AD009A4E87 /* Build configuration list for PBXNativeTarget "My Application" */;
+			buildConfigurationList = A903B45B2FA28846008CE65F /* Build configuration list for PBXNativeTarget "MyApplication" */;
 			buildPhases = (
-				A99A4BCC2FA228AC009A4E87 /* Sources */,
-				A99A4BCD2FA228AC009A4E87 /* Frameworks */,
-				A99A4BCE2FA228AC009A4E87 /* Resources */,
+				A903B4442FA28845008CE65F /* Sources */,
+				A903B4452FA28845008CE65F /* Frameworks */,
+				A903B4462FA28845008CE65F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				A99A4BD22FA228AC009A4E87 /* My Application */,
+				A903B44A2FA28845008CE65F /* MyApplication */,
 			);
-			name = "My Application";
+			name = MyApplication;
 			packageProductDependencies = (
 			);
-			productName = "My Application";
-			productReference = A99A4BD02FA228AC009A4E87 /* My Application.app */;
+			productName = MyApplication;
+			productReference = A903B4482FA28845008CE65F /* MyApplication.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A99A4BC82FA228AC009A4E87 /* Project object */ = {
+		A903B4402FA28845008CE65F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					A99A4BCF2FA228AC009A4E87 = {
+					A903B4472FA28845008CE65F = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
-			buildConfigurationList = A99A4BCB2FA228AC009A4E87 /* Build configuration list for PBXProject "My Application" */;
+			buildConfigurationList = A903B4432FA28845008CE65F /* Build configuration list for PBXProject "MyApplication" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = A99A4BC72FA228AC009A4E87;
+			mainGroup = A903B43F2FA28845008CE65F;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = A99A4BD12FA228AC009A4E87 /* Products */;
+			productRefGroup = A903B4492FA28845008CE65F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A99A4BCF2FA228AC009A4E87 /* My Application */,
+				A903B4472FA28845008CE65F /* MyApplication */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A99A4BCE2FA228AC009A4E87 /* Resources */ = {
+		A903B4462FA28845008CE65F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +128,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A99A4BCC2FA228AC009A4E87 /* Sources */ = {
+		A903B4442FA28845008CE65F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,7 +138,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A99A4BE42FA228AD009A4E87 /* Debug */ = {
+		A903B45C2FA28846008CE65F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MK3T64SR69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Application/Info.plist";
+				INFOPLIST_FILE = MyApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -158,7 +158,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.template.My-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = com.template.MyApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -170,7 +170,7 @@
 			};
 			name = Debug;
 		};
-		A99A4BE52FA228AD009A4E87 /* Release */ = {
+		A903B45D2FA28846008CE65F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -179,7 +179,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MK3T64SR69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "My Application/Info.plist";
+				INFOPLIST_FILE = MyApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -190,7 +190,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.template.My-Application";
+				PRODUCT_BUNDLE_IDENTIFIER = com.template.MyApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -202,7 +202,7 @@
 			};
 			name = Release;
 		};
-		A99A4BE62FA228AD009A4E87 /* Debug */ = {
+		A903B45E2FA28846008CE65F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -266,7 +266,7 @@
 			};
 			name = Debug;
 		};
-		A99A4BE72FA228AD009A4E87 /* Release */ = {
+		A903B45F2FA28846008CE65F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -326,25 +326,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A99A4BCB2FA228AC009A4E87 /* Build configuration list for PBXProject "My Application" */ = {
+		A903B4432FA28845008CE65F /* Build configuration list for PBXProject "MyApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A99A4BE62FA228AD009A4E87 /* Debug */,
-				A99A4BE72FA228AD009A4E87 /* Release */,
+				A903B45E2FA28846008CE65F /* Debug */,
+				A903B45F2FA28846008CE65F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A99A4BE32FA228AD009A4E87 /* Build configuration list for PBXNativeTarget "My Application" */ = {
+		A903B45B2FA28846008CE65F /* Build configuration list for PBXNativeTarget "MyApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A99A4BE42FA228AD009A4E87 /* Debug */,
-				A99A4BE52FA228AD009A4E87 /* Release */,
+				A903B45C2FA28846008CE65F /* Debug */,
+				A903B45D2FA28846008CE65F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A99A4BC82FA228AC009A4E87 /* Project object */;
+	rootObject = A903B4402FA28845008CE65F /* Project object */;
 }
