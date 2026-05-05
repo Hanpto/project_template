@@ -1,0 +1,24 @@
+{
+  "template_version": "1.0.0",
+  "platform": "android",
+  "upstream": {
+    "repo": "Hanpto/project_template",
+    "path": "android/MyApplication",
+    "pinned_commit": ""
+  },
+  "injection_points": [
+    {
+      "name": "GeneratedView.kt",
+      "path": "app/src/main/java/com/template/myapplication/generated/GeneratedView.kt",
+      "placeholder": true,
+      "replace_mode": "overwrite"
+    }
+  ],
+  "auto_run_flows": {
+    "anchor_start_then_end": {
+      "entry": "app/src/main/java/com/template/myapplication/autorun/AnchorStartThenEnd.kt",
+      "description": "启动 → 自动登录 → 进入主播视图 → 开播 → 30s 后结束 → 退出",
+      "timeout_sec": 60
+    }
+  }
+}
