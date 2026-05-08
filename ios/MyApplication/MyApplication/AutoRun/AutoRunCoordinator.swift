@@ -2,7 +2,7 @@
 //  AutoRunCoordinator.swift
 //  MyApplication
 //
-//  评测工具自动运行协调器：根据环境变量选择并执行对应的 auto-run flow。
+//  Auto-run flow dispatcher: selects and executes the flow specified by environment variable.
 //
 
 import Foundation
@@ -13,30 +13,39 @@ enum AutoRunError: Error {
 }
 
 class AutoRunCoordinator {
-
     private static let flows: [String: () -> AutoRunFlow] = [
-        "anchor_start_then_end": { AnchorStartThenEnd() }
+        // Generic flow — works for ANY injected code scenario
+        "run_generated": { RunGenerated() },
+        // Legacy flow — kept for backward compatibility with existing Live/anchor cases
+        "anchor_start_then_end": { AnchorStartThenEnd() },
     ]
 
-    /// 从环境变量 `EVAL_AUTO_RUN_FLOW` 读取 flow ID 并执行。
-    /// 若未设置则跳过（手动模式）。
+    /// Read flow ID from `EVAL_AUTO_RUN_FLOW` env var and execute.
+    /// If not set, skip (manual mode).
+    /// If flow ID is unknown, gracefully fall back to "run_generated".
     static func runIfNeeded(completion: @escaping (Result<Void, Error>) -> Void) {
         guard let flowId = ProcessInfo.processInfo.environment["EVAL_AUTO_RUN_FLOW"],
-              !flowId.isEmpty else {
-            // 手动模式，不执行自动流程
+              !flowId.isEmpty
+        else {
+            // Manual mode
             completion(.success(()))
             return
         }
 
-        guard let factory = flows[flowId] else {
-            completion(.failure(AutoRunError.unknownFlow(flowId)))
-            return
+        let factory: () -> AutoRunFlow
+        if let f = flows[flowId] {
+            factory = f
+        } else {
+            // Graceful fallback: unknown flow → use run_generated
+            NSLog("[AutoRunCoordinator] Unknown flow: '%@'. Known: %@. Falling back to 'run_generated'.",
+                  flowId, Array(flows.keys).joined(separator: ", "))
+            factory = flows["run_generated"]!
         }
 
         let flow = factory()
         let timeoutSec: TimeInterval = 60
 
-        // 全局超时保护
+        // Global timeout protection
         var didComplete = false
         DispatchQueue.global().asyncAfter(deadline: .now() + timeoutSec) {
             if !didComplete {

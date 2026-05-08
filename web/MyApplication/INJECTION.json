@@ -1,24 +1,43 @@
 {
-  "template_version": "1.0.0",
+  "template_version": "2.0.0",
   "platform": "web",
   "upstream": {
     "repo": "Hanpto/project_template",
     "path": "web/MyApplication",
-    "pinned_commit": ""
+    "pinned_commit": "6e8f3e6d986144f3a65a4567e26353df350bb34b"
   },
   "injection_points": [
     {
-      "name": "anchorView.ts",
-      "path": "src/generated/anchorView.ts",
+      "name": "userCode.ts",
+      "path": "src/generated/userCode.ts",
       "placeholder": true,
-      "replace_mode": "overwrite"
+      "replace_mode": "overwrite",
+      "description": "Primary injection target. AI-generated code is written here. Must compile standalone."
+    },
+    {
+      "name": "userCode.vue",
+      "path": "src/generated/userCode.vue",
+      "placeholder": true,
+      "replace_mode": "overwrite",
+      "optional": true,
+      "description": "Optional Vue SFC injection target. Used when AI generates .vue files."
     }
   ],
+  "injection_contract": {
+    "description": "The injected code MUST export a `run()` async function as its entry point. The flow runner will call this function. If the code is a Vue component, it should be wrapped in a .ts file that mounts the component and exports run().",
+    "required_export": "run",
+    "signature": "() => Promise<void>",
+    "fallback_behavior": "If no run() export is found, the flow will import the module for side-effects only and wait for timeout."
+  },
   "auto_run_flows": {
-    "anchor_start_then_end": {
-      "entry": "src/autorun/anchorStartThenEnd.ts",
-      "description": "启动 → 自动登录 → 进入主播视图 → 开播 → 30s 后结束 → 退出",
+    "run_generated": {
+      "entry": "src/autorun/runGenerated.ts",
+      "description": "Generic flow: imports the injected userCode module, calls its run() export, and waits for completion or timeout.",
       "timeout_sec": 60
     }
+  },
+  "vue_support": {
+    "shims_path": "src/generated/shims-vue.d.ts",
+    "description": "When .vue files are injected, a Vue type shim is auto-created to satisfy TypeScript."
   }
 }

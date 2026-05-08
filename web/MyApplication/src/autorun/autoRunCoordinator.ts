@@ -1,29 +1,63 @@
+/**
+ * autoRunCoordinator.ts — Flow dispatcher.
+ *
+ * Loads and executes the auto-run flow specified by the VITE_EVAL_AUTO_RUN_FLOW env var.
+ * The coordinator is GENERIC — it does not contain business-logic-specific code.
+ * All flows follow the same FlowModule interface: { run: () => Promise<void> }.
+ *
+ * Adding a new flow:
+ * 1. Create src/autorun/<flowName>.ts exporting `run()`
+ * 2. Add an entry to the FLOWS map below
+ * 3. Declare it in INJECTION.json auto_run_flows
+ */
+
 type FlowModule = { run: () => Promise<void> };
 
 const FLOWS: Record<string, () => Promise<FlowModule>> = {
+  // Generic flow — works for ANY injected code scenario
+  run_generated: () => import("./runGenerated"),
+
+  // Legacy flow — kept for backward compatibility with existing Live/anchor cases
   anchor_start_then_end: () => import("./anchorStartThenEnd"),
 };
 
 export async function runAutoFlow(flowId: string): Promise<void> {
   const loader = FLOWS[flowId];
   if (!loader) {
-    throw new Error(`Unknown EVAL_AUTO_RUN_FLOW: ${flowId}. Known: ${Object.keys(FLOWS).join(", ")}`);
+    // Graceful fallback: if the requested flow doesn't exist, try run_generated
+    console.warn(
+      `[autoRunCoordinator] Unknown flow: "${flowId}". ` +
+      `Known: ${Object.keys(FLOWS).join(", ")}. Falling back to "run_generated".`
+    );
+    const fallbackLoader = FLOWS["run_generated"]!;
+    const mod = await fallbackLoader();
+    await withTimeout(mod.run(), 60_000, flowId);
+    return;
   }
 
-  // 60s 全局超时 —— 与 INJECTION.json.auto_run_flows[*].timeout_sec 对齐。
+
   const timeoutMs = 60_000;
-  const timer = new Promise<never>((_, reject) =>
-    setTimeout(() => reject(new Error(`Auto-run timeout after ${timeoutMs}ms`)), timeoutMs),
-  );
-
   const mod = await loader();
-  await Promise.race([mod.run(), timer]);
+  await withTimeout(mod.run(), timeoutMs, flowId);
 
-  // 跑完正常退出（评测工具会捕获该信号；浏览器环境 close() 可能被拦截，留 console 信号即可）。
   console.log(`[MyApplication] auto-run flow done: ${flowId}`);
   try {
     window.close();
   } catch {
-    /* ignored */
+    /* ignored in non-browser env */
   }
+}
+
+async function withTimeout(
+  task: Promise<void>,
+  timeoutMs: number,
+  flowId: string,
+): Promise<void> {
+  const timer = new Promise<never>((_, reject) =>
+    setTimeout(
+      () => reject(new Error(`Auto-run timeout after ${timeoutMs}ms (flow: ${flowId})`)),
+      timeoutMs,
+    ),
+  );
+  await Promise.race([task, timer]);
 }

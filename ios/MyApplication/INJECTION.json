@@ -1,23 +1,36 @@
 {
-  "template_version": "1.0.0",
+  "template_version": "2.0.0",
   "platform": "ios",
   "upstream": {
     "repo": "Hanpto/project_template",
     "path": "ios/MyApplication",
-    "pinned_commit": ""
+    "pinned_commit": "6e8f3e6d986144f3a65a4567e26353df350bb34b"
   },
   "injection_points": [
     {
-      "name": "GeneratedView.swift",
-      "path": "MyApplication/Generated/GeneratedView.swift",
+      "name": "UserCode.swift",
+      "path": "MyApplication/Generated/UserCode.swift",
       "placeholder": true,
-      "replace_mode": "overwrite"
+      "replace_mode": "overwrite",
+      "description": "Primary injection target. AI-generated Swift code is written here. Must compile standalone."
     }
   ],
+  "injection_contract": {
+    "description": "The injected code MUST define a class `UserCode` with a static method `run(completion:)`. The flow runner will call this method. If no such method exists, the flow will instantiate the class for side-effects and wait for timeout.",
+    "required_class": "UserCode",
+    "required_method": "run(completion:)",
+    "signature": "static func run(completion: @escaping (Result<Void, Error>) -> Void)",
+    "fallback_behavior": "If no run(completion:) method is found, the flow will instantiate UserCode and wait for timeout."
+  },
   "auto_run_flows": {
+    "run_generated": {
+      "entry": "MyApplication/AutoRun/RunGenerated.swift",
+      "description": "Generic flow: instantiates the injected UserCode class, calls its run(completion:) method, and waits for completion or timeout.",
+      "timeout_sec": 60
+    },
     "anchor_start_then_end": {
       "entry": "MyApplication/AutoRun/AnchorStartThenEnd.swift",
-      "description": "启动 → 自动登录 → 进入主播视图 → 开播 → 30s 后结束 → 退出",
+      "description": "Legacy flow for Live/anchor scenarios.",
       "timeout_sec": 60
     }
   }
