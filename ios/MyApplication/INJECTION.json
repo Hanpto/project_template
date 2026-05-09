@@ -4,7 +4,7 @@
   "upstream": {
     "repo": "Hanpto/project_template",
     "path": "ios/MyApplication",
-    "pinned_commit": ""
+    "pinned_commit": "6e8f3e6d986144f3a65a4567e26353df350bb34b"
   },
   "injection_points": [
     {
@@ -17,7 +17,7 @@
   "auto_run_flows": {
     "anchor_start_then_end": {
       "entry": "MyApplication/AutoRun/AnchorStartThenEnd.swift",
-      "description": "启动 → 自动登录 → 进入主播视图 → 开播 → 30s 后结束 → 退出",
+      "description": "\u542f\u52a8 \u2192 \u81ea\u52a8\u767b\u5f55 \u2192 \u8fdb\u5165\u4e3b\u64ad\u89c6\u56fe \u2192 \u5f00\u64ad \u2192 30s \u540e\u7ed3\u675f \u2192 \u9000\u51fa",
       "timeout_sec": 60
     }
   }
